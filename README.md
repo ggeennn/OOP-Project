@@ -854,9 +854,10 @@ char* makeBillFileName(char* filename, size_t billNo) {
    } while (temp > 0);
    length = cnt;
    // Convert each digit to character from the end
-   while (billNo > 0) {
-      filename[--cnt] = (billNo % 10) + '0';
-      billNo /= 10;
+   temp = billNo;
+   while (temp > 0) {
+      filename[--cnt] = (temp % 10) + '0';
+      temp /= 10;
    }
    // Handle the case when billNo is 0
    if (!billNo) {
